@@ -1,0 +1,87 @@
+#!/bin/bash
+
+set -e;
+
+export EMERGE_PARAM="-uDN --backtrack=10000 --verbose-conflict --autounmask-write=y --keep-going --jobs=8 --load-average=10 --changed-deps";
+
+emerge_sync () {
+	echo -e ">>> (Step \033[1;33m$1\033[0m of \033[1;33m$2\033[0m) Syncing portage tree...";
+	/usr/bin/python-exec2c /usr/bin/emerge --sync;
+}
+
+layman_sync () {
+	echo -e ">>> (Step \033[1;33m$1\033[0m of \033[1;33m$2\033[0m) Syncing overlays via layman...";
+	/usr/bin/python-exec2c /usr/bin/layman -S;
+}
+
+eix_update () {
+	echo -e ">>> (Step \033[1;33m$1\033[0m of \033[1;33m$2\033[0m) Updating eix database...";
+	/usr/bin/eix-update;
+}
+
+sync_tree () {
+	echo -e ">>> Syncing portage tree...";
+
+	# Arguments: 	1: Only sync Portage tree.
+	#		2: Only sync overlays.
+	#		3: Sync Portage tree&overlays.
+	#		4: Only update eix.
+	#		5: Sync Portage tree and update eix database.
+	#		6: Sync overlays and update eix database.
+	#		7: Do all the things above.
+	case $1 in
+	1)
+		emerge_sync 1 1;
+		return 0;
+		;;
+	2)
+		layman_sync 1 1;
+		return 0;
+		;;
+	3)
+		eix_update 1 2;
+		layman_sync 2 2;
+		return 0;
+		;;
+	4)
+		eix_update 1 1;
+		return 0;
+		;;
+	5)
+		emerge_sync 1 2;
+		eix_update 2 2;
+		return 0;
+		;;
+	6)
+		layman_sync 1 2;
+		eix_update 2 2;
+		return 0;
+		;;
+	*)
+		emerge_sync 1 3;
+		layman_sync 2 3;
+		eix_update 3 3;
+		return 0;
+		;;
+	esac
+	echo -e ">>> Sync complete.";
+	return 1;
+}
+
+upgrade_system (){
+	echo -e ">>> Invoking emerge...";
+	/usr/bin/python-exec2c /usr/bin/emerge $EMERGE_PARAM @world;
+}
+
+main () {
+	if [[ $EUID -ne 0 ]]; then
+  		echo "This action requires superuser access...";
+   		return 1;
+	fi
+	sync_tree 7;
+	upgrade_system;
+	echo -e ">>> All done, have fun.";
+}
+
+
+main;
