@@ -1,0 +1,56 @@
+sys-apps/dbus user-session
+sys-apps/util-linux static-libs
+dev-libs/glib dbus mime xattr -debug fam -selinux -static-libs systemtap -test utils
+media-libs/mesa classic dri3 egl gallium gbm gles2 llvm nptl wayland -bindist d3d9 -debug gles1 opencl openmax osmesa -pax_kernel pic -selinux unwind vaapi valgrind vdpau xa xvmc -vulkan
+kde-plasma/plasma-desktop legacy-systray gtk2 gtk3 qt5
+dev-lang/ghc gmp profile -binary doc ghcmakebinary
+dev-haskell/ghc-paths profile
+sys-block/gparted btrfs kde policykit cryptsetup dmraid f2fs fat hfs jfs mdadm ntfs reiser4 reiserfs udf xfs
+media-gfx/krita gsl jpeg pdf raw tiff color-management -debug fftw openexr qtmedia vc
+media-sound/audacity flac ladspa lame lv2 mad midi nls portmixer soundtouch vorbis vst -doc ffmpeg id3tag -jack -libav sbsms twolame vamp
+www-client/firefox dbus gmp-autoupdate pulseaudio screenshot startup-notification bindist hwaccel nsplugin wifi pgo
+app-text/texlive X png truetype xml cjk context detex dvi2tty epspdf extra games graphics humanities jadetex luatex metapost music pdfannotextractor pstricks publishers science tex4ht texi2html xetex
+dev-util/nvidia-cuda-sdk cuda doc -examples -debug mpi opencl
+net-libs/libmicrohttpd ssl epoll messages
+sys-apps/hwloc X cairo numa pci svg xml cuda -debug gl plugins
+sys-apps/flashrom atapromise atavia buspirate_spi drkaiser dummy ft2232_spi gfxnvidia internal internal_dmi it8212 linux_spi nic3com nicintel nicintel_eeprom nicintel_spi nicrealtek ogp_spi pickit2_spi pony_spi rayer_spi satamv satasii serprog usbblaster_spi wiki atahpt ch341a_spi dediprog mstarddc_spi nicnatsemi tools
+kde-plasma/kwin gles2 multimedia
+app-emulation/wine-vanilla X capi dos fontconfig gecko gphoto2 gsm gstreamer jpeg kerberos lcms ldap mono mp3 ncurses netapi nls odbc openal opencl opengl osmesa pcap perl png prelink pulseaudio realtime run-exes samba scanner ssl threads truetype udev udisks v4l xcomposite xinerama xml
+media-sound/pulseaudio X alsa alsa-plugin asyncns bluetooth caps dbus gdbm glib gnome gtk ipv6 orc ssl systemd tcpd udev webrtc-aec equalizer jack libsamplerate lirc native-headset ofono-headset -qt4 -selinux sox zeroconf
+app-editors/vim X acl cscope -debug gpm lua luajit nls perl python racket ruby tcl terminal vim-pager
+app-editors/gvim acl aqua cscope gtk3 lua luajit motif neXt netbeans nls perl python racket ruby session tcl
+dev-java/oracle-jre-bin alsa cups fontconfig gtk3 commercial javafx nsplugin visualvm gentoo-vm
+dev-java/oracle-jdk-bin alsa cups fontconfig gtk3 commercial javafx nsplugin source jce visualvm gentoo-vm
+media-video/obs-studio alsa fdk imagemagick pulseaudio truetype v4l
+media-video/simplescreenrecorder asm mp3 pulseaudio theora vorbis vpx x264
+sys-libs/zlib static-libs
+app-shells/bash net nls readline afs bashlogger mem-scramble plugins
+www-client/w3m imlib
+app-crypt/pinentry gnome-keyring
+dev-libs/elfutils static-libs
+app-text/texlive-core cjk xetex
+x11-drivers/nvidia-drivers static-libs
+x11-base/xorg-server xvfb
+dev-qt/qtmultimedia gstreamer
+dev-qt/qtgui gles2
+sys-libs/ncurses tinfo
+net-fs/samba winbind
+sys-libs/tevent python
+sys-libs/tdb python
+dev-libs/xmlsec nss
+dev-lua/mpack luajit
+dev-lua/lpeg luajit
+media-video/ffmpeg vpx theora vaapi vdpau
+media-video/vlc X a52 alsa avcodec avformat dbus dts dvbpsi dvd encode ffmpeg flac jpeg libnotify libsamplerate mp3 mpeg ncurses ogg opengl png pulseaudio qt5 svg swscale truetype udev vorbis wayland x264 xcb xml xv aalib altivec aom archive bidi bluray cddb chromaprint chromecast dc1394 dvb dxva2 faad fdk fluidsynth fontconfig gcrypt gme gstreamer ieee1394 jack kate libass libcaca libtar libtiger linsys lirc live lua matroska modplug mtp musepack neon nfs omxil opencv optimisememory opus postproc projectm rdp rtsp run-as-root samba schroedinger sdl-image sftp shout sid skins speex taglib theora tremor twolame upnp v4l vaapi vcd vdpau vlm vnc vpx wma-fixed x265 zeroconf zvbi
+net-fs/samba client
+sys-fs/cryptsetup -gcrypt
+media-libs/opencv -cuda
+dev-util/lldb ncurses libedit python
+dev-lang/rust tools
+games-util/steam-client-meta pulseaudio steamruntime flash steamfonts trayicon
+media-plugins/gst-plugins-meta theora v4l
+media-libs/libvpx postproc
+media-libs/gst-plugins-base theora
+dev-db/mysql embedded
+virtual/mysql embedded
+media-sound/amarok embedded handbook ffmpeg ipod lastfm mtp ofa podcast wikipedia
